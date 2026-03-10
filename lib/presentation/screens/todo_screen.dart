@@ -23,12 +23,53 @@ class _TodoScreenState extends ConsumerState<TodoScreen> {
     });
   }
 
-  void _handleLogout() {
-    ref.read(authNotifierProvider.notifier).logout();
-    // Assuming the main.dart handles the auth state change to show LoginScreen
-    // but adding a pop to be safe based on your requirement
-    Navigator.of(context).popUntil((route) => route.isFirst);
-  }
+
+
+void _handleLogout() {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        title: const Text(
+          "Logout",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        content: const Text("Are you sure you want to logout?"),
+        actions: [
+
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context); // stay in Todo screen
+            },
+            child: const Text(
+              "No",
+              style: TextStyle(color: Colors.grey),
+            ),
+          ),
+
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.red,
+              foregroundColor: Colors.white,
+            ),
+            onPressed: () async {
+              Navigator.pop(context);
+
+              await ref.read(authNotifierProvider.notifier).logout();
+
+              Navigator.of(context).popUntil((route) => route.isFirst);
+            },
+            child: const Text("Yes"),
+          ),
+        ],
+      );
+    },
+  );
+}
+
 
   void showAddDialog() {
     final controller = TextEditingController();
