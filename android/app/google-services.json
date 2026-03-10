@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "433378759272",
+    "project_id": "todo-app-herody",
+    "storage_bucket": "todo-app-herody.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433378759272:android:bb5a349501ea73107821dd",
+        "android_client_info": {
+          "package_name": "com.example.todo_app_herody"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZysNZgFXLz-cXi0raY3N_LM_xuW69cs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
